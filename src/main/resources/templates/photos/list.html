@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
 <head th:insert="fragments/resources :: headResources('Album')"></head>
 <body>
 <nav th:replace="fragments/navbar :: topNavbar('photos')"></nav>
@@ -21,7 +21,7 @@
     </form>
   </div>
   <hr>
-  <div class="my-3">
+  <div class="my-3" sec:authorize="hasAuthority('ADMIN')">
     <a th:href="@{/photos/create}" class="btn btn-primary">Add new book</a>
   </div>
   <table class="table">
@@ -46,11 +46,21 @@
         <a class="btn btn-primary" th:href="@{/photos/show/{id}(id=*{id})}">
           <i class="fa-solid fa-eye"></i>
         </a>
-        <a class="btn btn-secondary" th:href="@{/photos/edit/{id}(id=*{id})}">
+        <a
+            class="btn btn-secondary"
+            th:href="@{/photos/edit/{id}(id=*{id})}"
+            title="edit"
+            sec:authorize="hasAuthority('ADMIN')"
+        >
           <i class="fa-solid fa-pen"></i>
         </a>
-        <form class="d-inline-block" method="POST" th:action="@{/photos/delete/{id}(id=*{id})}"
-              onsubmit="return confirm('Sei sicuro di eliminare la foto?')">
+        <form
+            class="d-inline-block"
+            method="POST"
+            th:action="@{/photos/delete/{id}(id=*{id})}"
+            onsubmit="return confirm('Sei sicuro di eliminare la foto?')"
+            sec:authorize="hasAuthority('ADMIN')"
+        >
           <button type="submit" class="btn btn-danger">
             <i class="fa-regular fa-trash-can"></i>
           </button>

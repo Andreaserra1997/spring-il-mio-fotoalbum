@@ -18,3 +18,13 @@ INSERT INTO categories(name) VALUES('paesaggi');
 
 INSERT INTO photos_categories(photo_id, categories_id) VALUES(1,2);
 INSERT INTO photos_categories(photo_id, categories_id) VALUES(1,6);
+
+INSERT INTO roles (id, name) VALUES(1, 'ADMIN');
+INSERT INTO roles (id, name) VALUES(2, 'USER');
+
+INSERT INTO users (email, password, first_name, last_name, registered_at) VALUES ('andrea@mail.com', '{noop}andrea', 'Andrea', 'Serra', '2023-11-19 12:00');
+INSERT INTO users (email, password, first_name, last_name, registered_at) VALUES ('robi@mail.com', '{noop}robi', 'Roberta', 'Carboni', '2023-11-19 12:30');
+
+INSERT INTO users_roles (user_id, roles_id) VALUE(1, 1);
+INSERT INTO users_roles (user_id, roles_id) VALUE(1, 2);
+INSERT INTO users_roles (user_id, roles_id) VALUE(2, 2);
