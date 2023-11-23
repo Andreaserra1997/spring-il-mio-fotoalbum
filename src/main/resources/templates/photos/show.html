@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/resources :: headResources('Lista delle Pizze')"></head>
+<body>
+<nav th:replace="fragments/navbar :: topNavbar('photos')"></nav>
+<div class="container text-center" th:object="${photo}">
+  <h1 class="pt-2" th:text="*{title}"></h1>
+  <h3 class="pt-2" th:text="*{description}"></h3>
+  <img style="width: 400px; height: 400px; object-fit: cover;" th:src="*{url}" alt="photo">
+  <p th:text="*{visible}"></p>
+</div>
+<div class="text-center">
+  <a class="btn btn-primary mt-5" th:href="@{/photos}">Torna alla lista delle Foto</a>
+</div>
+</body>
+</html>

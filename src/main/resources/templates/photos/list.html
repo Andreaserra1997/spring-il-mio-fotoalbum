@@ -4,8 +4,29 @@
 <body>
 <nav th:replace="fragments/navbar :: topNavbar('photos')"></nav>
 <div class="container">
-  <h1>Album</h1>
+  <div th:if="${message !=null}" class="alert alert-success alert-dismissible fade show">
+    <span th:text="${message}"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <div class="d-flex align-items-center justify-content-between">
+    <h1>Album</h1>
+    <form th:action="@{/photos}" method="GET">
+      <div class="input-group">
+        <input
+            type="text"
+            placeholder="Cerca tramite il titolo"
+            class="form-control" name="search"
+            th:value="${param.search}"
+        >
+        <button class="btn btn-primary" type="submit">Cerca</button>
+      </div>
+
+    </form>
+  </div>
   <hr>
+  <div class="my-3">
+    <a th:href="@{/photos/create}" class="btn btn-primary">Add new book</a>
+  </div>
   <table class="table">
     <thead>
     <tr>
@@ -13,6 +34,7 @@
       <th>Descrizione</th>
       <th>Url</th>
       <th>Visibile</th>
+      <th>Azioni</th>
     </tr>
     </thead>
     <tbody>
@@ -23,6 +45,20 @@
         <img style="width: 80px; height: 80px; object-fit: cover;" th:src="*{url}" alt="photo">
       </td>
       <td th:text="*{visible}"></td>
+      <td>
+        <a class="btn btn-primary" th:href="@{/photos/show/{id}(id=*{id})}">
+          <i class="fa-solid fa-eye"></i>
+        </a>
+        <a class="btn btn-secondary" th:href="@{/photos/edit/{id}(id=*{id})}">
+          <i class="fa-solid fa-pen"></i>
+        </a>
+        <form class="d-inline-block" method="POST" th:action="@{/photos/delete/{id}(id=*{id})}"
+              onsubmit="return confirm('Sei sicuro di eliminare la foto?')">
+          <button type="submit" class="btn btn-danger">
+            <i class="fa-regular fa-trash-can"></i>
+          </button>
+        </form>
+      </td>
     </tr>
     </tbody>
   </table>

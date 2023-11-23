@@ -1,6 +1,10 @@
 package com.experis.springalbum.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.AssertTrue;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
@@ -10,9 +14,14 @@ public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank(message = "Il titolo non può essere vuoto")
+    @Size(max = 255, message = "La lunghezza deve essere minore di 255")
     private String title;
+    @Lob
     private String description;
+    @NotBlank(message = "L immagine non può essere vuota")
     private String url;
+    @NotNull(message = "La visibilità non può essere nulla, deve essere o true o false")
     private Boolean visible;
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Category> categories;
