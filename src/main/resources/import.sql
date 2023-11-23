@@ -8,3 +8,13 @@ INSERT INTO db_album.photos (title, description, url, visible) VALUES('img7', 'I
 INSERT INTO db_album.photos (title, description, url, visible) VALUES('img8', 'Immagine8', 'https://picsum.photos/id/107/200/300', 1);
 INSERT INTO db_album.photos (title, description, url, visible) VALUES('img9', 'Immagine9', 'https://picsum.photos/id/108/200/300', 1);
 INSERT INTO db_album.photos (title, description, url, visible) VALUES('img10', 'Immagine10', 'https://picsum.photos/id/109/200/300', 1);
+
+INSERT INTO categories(name) VALUES('wild');
+INSERT INTO categories(name) VALUES('natura');
+INSERT INTO categories(name) VALUES('sport');
+INSERT INTO categories(name) VALUES('bianco e nero');
+INSERT INTO categories(name) VALUES('scienza');
+INSERT INTO categories(name) VALUES('paesaggi');
+
+INSERT INTO photos_categories(photo_id, categories_id) VALUES(1,2);
+INSERT INTO photos_categories(photo_id, categories_id) VALUES(1,6);

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:insert="fragments/resources :: headResources('Lista delle Pizze')"></head>
+<head th:insert="fragments/resources :: headResources('Lista delle Foto')"></head>
 <body>
 <nav th:replace="fragments/navbar :: topNavbar('photos')"></nav>
 <div class="container text-center" th:object="${photo}">
@@ -8,6 +8,12 @@
   <h3 class="pt-2" th:text="*{description}"></h3>
   <img style="width: 400px; height: 400px; object-fit: cover;" th:src="*{url}" alt="photo">
   <p th:text="*{visible}"></p>
+
+  <h3>Categorie</h3>
+  <ul th:if="*{categories.size() > 0}">
+    <li th:each="categoryObj : *{categories}" th:text="${categoryObj.name}" style="list-style:none;"></li>
+  </ul>
+  <div th:unless="*{categories.size() > 0}" class="alert alert-info">La lista è vuota</div>
 </div>
 <div class="text-center">
   <a class="btn btn-primary mt-5" th:href="@{/photos}">Torna alla lista delle Foto</a>

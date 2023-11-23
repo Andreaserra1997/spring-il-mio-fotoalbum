@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/resources :: headResources('Categorie')"></head>
+<body>
+<nav th:replace="fragments/navbar :: topNavbar('categories')"></nav>
+<div class="container">
+  <div th:replace="fragments/components :: message"></div>
+  <h1>Categorie</h1>
+  <hr>
+  <section>
+    <form
+        id="category-form"
+        th:action="@{/categories}"
+        method="POST"
+        th:object="${categoryObj}"
+    >
+      <div class="mb-3"
+           th:insert="fragments/components :: formField('text', 'Nome della categoria', 'name')">
+      </div>
+      <button class="btn btn-primary" type="submit">Aggiungi</button>
+    </form>
+  </section>
+  <section class="mt-4">
+    <ul class="list-group">
+      <li
+          th:each="category : ${categoryList}"
+          th:text="${category.name}"
+          class="list-group-item"
+      ></li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>

@@ -15,6 +15,14 @@
           <a class="nav-link" th:classAppend="${area == 'photos' ? 'active' : ''}"
              th:href="@{/photos}">Foto</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" th:classAppend="${area == 'categories' ? 'active' : ''}"
+             th:href="@{/categories}">Categorie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:classAppend="${area == 'users' ? 'active' : ''}"
+             th:href="@{/users}">User</a>
+        </li>
       </ul>
 
     </div>
