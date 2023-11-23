@@ -1,0 +1,10 @@
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img1', 'Immagine1', 'https://picsum.photos/id/100/200/300', 0);
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img2', 'Immagine2', 'https://picsum.photos/id/101/200/300', 0);
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img3', 'Immagine3', 'https://picsum.photos/id/102/200/300', 0);
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img4', 'Immagine4', 'https://picsum.photos/id/103/200/300', 0);
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img5', 'Immagine5', 'https://picsum.photos/id/104/200/300', 0);
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img6', 'Immagine6', 'https://picsum.photos/id/110/200/300', 0);
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img7', 'Immagine7', 'https://picsum.photos/id/106/200/300', 0);
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img8', 'Immagine8', 'https://picsum.photos/id/107/200/300', 0);
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img9', 'Immagine9', 'https://picsum.photos/id/108/200/300', 0);
+INSERT INTO db_album.photos (title, description, url, visible) VALUES('img10', 'Immagine10', 'https://picsum.photos/id/109/200/300', 0);

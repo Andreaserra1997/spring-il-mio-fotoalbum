@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Photos</title>
+</head>
+<body>
+<div class="container">
+  <h1>Album</h1>
+  <hr>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Titolo</th>
+      <th>Descrizione</th>
+      <th>Url</th>
+      <th>Visibile</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="photo : ${photoList}" th:object="${photo}">
+      <td th:text="*{title}"></td>
+      <td th:text="*{description}"></td>
+      <td>
+        <img style="width: 50px; height: 50px; object-fit: cover;" th:src="*{url}" alt="photo">
+      </td>
+      <td th:text="*{visible}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
