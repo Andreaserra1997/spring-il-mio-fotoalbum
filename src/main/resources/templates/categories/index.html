@@ -21,13 +21,32 @@
     </form>
   </section>
   <section class="mt-4">
-    <ul class="list-group">
-      <li
-          th:each="category : ${categoryList}"
-          th:text="${category.name}"
-          class="list-group-item"
-      ></li>
-    </ul>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Azioni</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each ="category : ${categoryList}" th:object="${category}" class="m-0">
+        <td th:text ="*{name}"></td>
+        <td>
+          <div class=" d-flex align-items-center">
+            <form
+                method="POST"
+                th:action="@{categories/delete/{id}(id=*{id})}"
+                onsubmit="return confirm('Sei sicuro di eliminare la categoria?')"
+            >
+              <button type="submit" class="btn btn-danger mx-1">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </form>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </section>
 </div>
 </body>

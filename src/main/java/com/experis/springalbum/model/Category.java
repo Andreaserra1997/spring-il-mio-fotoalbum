@@ -3,6 +3,11 @@ package com.experis.springalbum.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -14,6 +19,9 @@ public class Category {
     @Column(nullable = false, unique = true)
     @Size(max = 50)
     private String name;
+
+    @ManyToMany(mappedBy = "categories")
+    private List<Photo> photos;
 
     public Integer getId() {
         return id;
@@ -29,5 +37,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
     }
 }
