@@ -22,27 +22,15 @@
   </div>
   <hr>
   <div class="my-3" sec:authorize="hasAuthority('ADMIN')">
-    <a th:href="@{/photos/create}" class="btn btn-primary">Add new book</a>
+    <a th:href="@{/photos/create}" class="btn btn-primary">Aggiungi Foto</a>
   </div>
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Titolo</th>
-      <th>Descrizione</th>
-      <th>Url</th>
-      <th>Visibile</th>
-      <th>Azioni</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="photo : ${photoList}" th:object="${photo}">
-      <td th:text="*{title}"></td>
-      <td th:text="*{description}"></td>
-      <td>
-        <img style="width: 80px; height: 80px; object-fit: cover;" th:src="*{url}" alt="photo">
-      </td>
-      <td th:text="*{visible}"></td>
-      <td>
+
+  <div class="row gap-3 d-flex justify-content-center text-center">
+    <div class="col-lg-2 col-md-3 col-sm-6 mb-4" th:each="photo : ${photoList}" th:object="${photo}">
+      <img th:src="*{url}" alt="photo" style="width: 100%;">
+      <div class="card-body">
+        <h5 class="card-title" th:text="*{title}"></h5>
+        <p class="card-text" th:text="*{description}"></p>
         <a class="btn btn-primary" th:href="@{/photos/show/{id}(id=*{id})}">
           <i class="fa-solid fa-eye"></i>
         </a>
@@ -65,10 +53,9 @@
             <i class="fa-regular fa-trash-can"></i>
           </button>
         </form>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 </html>
