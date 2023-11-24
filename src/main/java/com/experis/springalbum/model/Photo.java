@@ -1,5 +1,6 @@
 package com.experis.springalbum.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -23,6 +24,7 @@ public class Photo {
     @NotNull(message = "La visibilità non può essere nulla, deve essere o true o false")
     private Boolean visible;
     @ManyToMany(fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Category> categories;
 
     public Integer getId() {

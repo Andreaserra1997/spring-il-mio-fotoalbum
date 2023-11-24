@@ -16,8 +16,9 @@ INSERT INTO categories(name) VALUES('bianco e nero');
 INSERT INTO categories(name) VALUES('scienza');
 INSERT INTO categories(name) VALUES('paesaggi');
 
-INSERT INTO photos_categories(photo_id, categories_id) VALUES(1,2);
-INSERT INTO photos_categories(photo_id, categories_id) VALUES(1,6);
+INSERT INTO db_album.photos_categories (photos_id, categories_id) VALUES(1, 2);
+INSERT INTO db_album.photos_categories (photos_id, categories_id) VALUES(1, 6);
+
 
 INSERT INTO roles (id, name) VALUES(1, 'ADMIN');
 INSERT INTO roles (id, name) VALUES(2, 'USER');

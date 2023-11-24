@@ -22,6 +22,10 @@ public class PhotoService {
         }
     }
 
+    public List<Photo> getPhotoList() {
+        return photoRepository.findAll();
+    }
+
     public Photo getPhotoById(Integer id) throws PhotoNotFoundException {
         Optional<Photo> result = photoRepository.findById(id);
         if (result.isPresent()) {
@@ -32,6 +36,7 @@ public class PhotoService {
     }
 
     public Photo createPhoto(Photo photo) {
+        photo.setId(null);
         try {
             return photoRepository.save(photo);
         } catch (Exception e) {
