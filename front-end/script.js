@@ -1,4 +1,5 @@
 const apiUrl = "http://localhost:8080/api/v1/photos";
+const apiUrlMessage = "http://localhost:8080/api/v1/messages";
 const root = document.getElementById("root");
 
 const searchByTitle = async () => {
@@ -58,3 +59,24 @@ const getPhotos = async () => {
 };
 
 getPhotos();
+
+document
+  .getElementById("messageForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    try {
+      await axios.post(apiUrlMessage, {
+        email,
+        message,
+      });
+      successMessage.style.display = "block";
+      this.style.display = "none";
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 2000);
+    } catch (error) {
+      console.error(error);
+    }
+  });

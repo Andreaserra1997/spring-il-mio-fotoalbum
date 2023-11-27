@@ -53,6 +53,36 @@
       </div>
     </div>
     <hr />
+
+    <div class="container">
+      <div id="successMessage" style="display: none">Messaggio inviato</div>
+      <form method="post" id="messageForm">
+        <h3>Contattami</h3>
+        <div>
+          <label for="email" class="form-label">La tua Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div>
+          <label for="message" class="form-label"
+            >Scrivi qui il tuo messaggio</label
+          >
+          <textarea
+            name="message"
+            id="message"
+            cols="30"
+            rows="5"
+            class="form-control mb-3"
+          ></textarea>
+          <button type="submit" class="btn btn-primary mb-3">Invia</button>
+        </div>
+      </form>
+    </div>
+
     <div id="root"></div>
     <script src="script.js"></script>
   </body>

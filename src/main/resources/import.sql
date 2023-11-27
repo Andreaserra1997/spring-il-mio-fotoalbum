@@ -29,3 +29,5 @@ INSERT INTO users (email, password, first_name, last_name, registered_at) VALUES
 INSERT INTO users_roles (user_id, roles_id) VALUE(1, 1);
 INSERT INTO users_roles (user_id, roles_id) VALUE(1, 2);
 INSERT INTO users_roles (user_id, roles_id) VALUE(2, 2);
+
+INSERT INTO messages (email, message, created_at) VALUES ('andrea@mail.com', 'Ciao, bellissime foto!', '2023-11-27 10:30:00');
